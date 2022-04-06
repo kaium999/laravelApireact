@@ -18,3 +18,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::post('register','App\Http\Controllers\UserController@register');
+Route::get('datashow','App\Http\Controllers\UserController@Showdata');
+Route::delete('delete/{id}','App\Http\Controllers\UserController@deleteuser');

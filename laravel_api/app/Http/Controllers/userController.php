@@ -17,4 +17,12 @@ class userController extends Controller
         return $user;
 
     }
+    function Showdata(){
+        return User::all();
+    }
+    function deleteuser($id){
+        $data= User::find($id);
+        $data->delete();
+        return"delete Successfully";
+    }
 }
