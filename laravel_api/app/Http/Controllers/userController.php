@@ -25,4 +25,23 @@ class userController extends Controller
         $data->delete();
         return"delete Successfully";
     }
+    function editShow($id){
+        $data=User::find($id);
+        //$data=User::find($id);
+        return $data;
+        //return view('Edit',['user'=>$data]);
+        
+    }
+    function update(Request $req, $id){
+        
+        $data=employee::find($req->$id);
+        $data->uname=$req->name;
+        $data->uemail=$req->email;
+        $data->upassword=$req->password;
+        $data->save();
+        
+        //return redirect('show');
+        
+        //return $id;
+    }
 }
