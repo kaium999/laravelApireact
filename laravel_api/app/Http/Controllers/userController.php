@@ -32,16 +32,19 @@ class userController extends Controller
         //return view('Edit',['user'=>$data]);
         
     }
-    function update(Request $req, $id){
+    function update( Request $req,$id){
         
-        $data=employee::find($req->$id);
-        $data->uname=$req->name;
-        $data->uemail=$req->email;
-        $data->upassword=$req->password;
-        $data->save();
+        $data=User::find($id);
+        $data->uname = $req->input('name');
+        $data->uemail= $req->input('email');
+        $data->upassword= $req->input('password');
+        $data->update();
+        return response()->json([
+            'status'=>200,
+            'message'=>"Student Update successfully",
+        ]);
+        //return redirect('show');*/
         
-        //return redirect('show');
-        
-        //return $id;
+        return $id;
     }
 }
